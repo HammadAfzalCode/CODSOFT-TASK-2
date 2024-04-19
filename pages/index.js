@@ -18,18 +18,22 @@ import web5 from "../public/web5.png";
 import web6 from "../public/web6.png";
 import { useState } from "react";
 export default function Home() {
+  const [darkMode, setDarkMode] = useState(false);
   return (
-    <div>
+    <div className={darkMode ? "dark" : ""}>
       <Head>
         <title>Hammad Afzal</title>
       </Head>
-      <main className="bg-white px-10 md:px-20 lg:px-40 ">
+      <main className="bg-white px-10 md:px-20 lg:px-40 dark:bg-gray-900 ">
         <section className="min-h-screen">
           <nav className="py-10 mb-12 flex justify-between">
             <h1 className="text-xl font-burtons">Developed by Hammad Afzal</h1>
             <ul className="flex items-center">
               <li>
-                <BsFillMoonStarsFill className="cursor-pointer " />{" "}
+                <BsFillMoonStarsFill
+                  onClick={() => setDarkMode(!darkMode)}
+                  className="cursor-pointer "
+                />{" "}
               </li>
               <li>
                 <a
@@ -76,7 +80,7 @@ export default function Home() {
             </p>
           </div>
           <div className="lg:flex gap-10">
-            <div className="text-center shadow-lg p-10 rounded-xl my-10">
+            <div className="text-center shadow-lg p-10 rounded-xl my-10 dark:bg-white">
               <Image
                 src={design}
                 width={100}
@@ -95,7 +99,7 @@ export default function Home() {
               <p className="text-gray-800 py-1">Illustrator</p>
               <p className="text-gray-800 py-1">Figma</p>
             </div>
-            <div className="text-center shadow-lg p-10 rounded-xl my-10">
+            <div className="text-center shadow-lg p-10 rounded-xl my-10  dark:bg-white">
               <Image src={code} width={100} height={100} className="mx-auto" />
               <h3 className="text-lg font-medium pt-8 pb-2">
                 Beautiful Designs
@@ -106,7 +110,7 @@ export default function Home() {
               <p className="text-gray-800 py-1">Node js</p>
               <p className="text-gray-800 py-1">Express js</p>
             </div>
-            <div className="text-center shadow-lg p-10 rounded-xl my-10">
+            <div className="text-center shadow-lg p-10 rounded-xl my-10  dark:bg-white">
               <Image
                 src={consulting}
                 width={100}
